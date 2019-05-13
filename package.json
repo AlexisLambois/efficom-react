@@ -1,0 +1,24 @@
+{
+  "name": "efficom-react",
+  "version": "1.0.0",
+  "description": "efficom-react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexisLambois/efficom-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexisLambois/efficom-react/issues"
+  },
+  "homepage": "https://github.com/AlexisLambois/efficom-react#readme",
+  "dependencies": {
+    "app": "^0.1.0",
+    "create": "0.0.2",
+    "react": "^16.8.6"
+  }
+}
