@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import hardtack from 'hardtack'
-import Pokemon from '../pokemon/cmp-pokemon'
-import Search from '../search/cmp-search'
+import Pokemon from '../../component/pokemon/card-pokemon'
+import Search from '../../component/search/search'
 
-class Page extends Component {
+class ListPokemon extends Component {
   state = {
     searchString: '',
     pokemonsIds: [],
@@ -11,6 +11,7 @@ class Page extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.getPokemons); debugger;
     this.props.getPokemons().then(action => {
       if (action.error) {
         return this.setState({
@@ -97,4 +98,4 @@ class Page extends Component {
   }
 }
 
-export default Page
+export default ListPokemon

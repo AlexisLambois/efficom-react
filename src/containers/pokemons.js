@@ -1,6 +1,6 @@
-import { connect } from 'react-redux'
-import { getPokemons } from '../../actions/pokemons'
-import Page from './cmp-page'
+import {connect} from 'react-redux'
+import {getPokemons} from '../actions/pokemons'
+import ListPokemon from './../ui/list-pokemon/list-pokemon';
 
 function mapStateToProps(state) {
   const { collection } = state.pokemons
@@ -17,4 +17,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Page)
+)(ListPokemon)
