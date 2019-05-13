@@ -11,7 +11,6 @@ class ListPokemon extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.getPokemons); debugger;
     this.props.getPokemons().then(action => {
       if (action.error) {
         return this.setState({
