@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default class Home extends React.Component {
+export default class Register extends React.Component {
   render() {
     return (
       <div>
-        
+        Hello boys
       </div>
     )
   }
