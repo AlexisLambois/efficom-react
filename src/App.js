@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from './component/navbar/Navbar';
+import Navbar from './component/navbar/NavbarPokedex';
 import Register from './ui/register/Register';
 import Pokemon from './containers/pokemons';
 
