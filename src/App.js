@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from './component/navbar/NavbarPokedex';
-import Pokemon from './containers/pokemons';
+import Pokemon from './containers/pokemons.container';
 import {LoginPage} from './ui/login/login.page';
 import {RegisterPage} from './ui/register/RegisterPage';
 
