@@ -10,9 +10,9 @@ export default class NavbarPokedex extends React.Component {
                 <Navbar.Brand>Pokedex</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav class="mr-auto">
-                        <Link class="mr-2 ml-2" to="/">Home</Link>
-                        <Link class="mr-2 ml-2" to="/register">Register</Link>
+                    <Nav className="mr-auto">
+                        <Link className="mr-2 ml-2" to="/">Home</Link>
+                        <Link className="mr-2 ml-2" to="/register">Register</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

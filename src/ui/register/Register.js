@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default class Register extends React.Component {
   render() {
     return (
-      <div class="container">
+      <div className="container mt-5">
         <RegisterForm/>
       </div>
     )
