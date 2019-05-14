@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import {Link} from "react-router-dom";
 
 class Pokemon extends PureComponent {
   render() {
@@ -6,16 +7,20 @@ class Pokemon extends PureComponent {
 
     return (
       <div className="pokemon">
-        <button
-          type="button"
-          className="pokemon__sprite"
-          style={{
-            backgroundImage: `url(${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-              pokemon.id
-            }.png`})`
-          }}
-        />
-        <p className="pokemon__name">{pokemon.name}</p>
+
+        <Link className="mr-2 ml-2" to={`/pokemon/${pokemon.id}`}>
+          <button
+            type="button"
+            className="pokemon__sprite"
+            style={{
+              backgroundImage: `url(${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                pokemon.id
+                }.png`})`
+            }}
+          />
+          <p className="pokemon__name">{pokemon.name}</p>
+        </Link>
+
       </div>
     )
   }

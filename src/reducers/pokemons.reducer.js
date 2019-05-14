@@ -2,7 +2,7 @@ import {
   GET_POKEMONS_REQUEST,
   GET_POKEMONS_SUCCESS,
   GET_POKEMONS_FAILURE
-} from '../actions/pokemons'
+} from '../actions/pokemons.action'
 
 const initialState = {
   collection: {},
@@ -18,6 +18,7 @@ export default function(state = initialState, action) {
       }
 
     case GET_POKEMONS_SUCCESS:
+    console.log(state);
       return {
         ...state,
         collection: {
@@ -42,7 +43,7 @@ export default function(state = initialState, action) {
         ...state,
         isFetched: false
       }
-
+  
     default:
       return state
   }
