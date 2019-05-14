@@ -4,15 +4,10 @@ const Search = ({ onChange, value }) => (
   <input
     type="text"
     onChange={onChange}
-    value={capitalize(value)}
-    placeholder="Nom de pokemon..."
+    value={value}
+    placeholder="Enter pokemon name..."
     autoFocus
   />
 )
-
-const capitalize = (s) => {
-  if (typeof s !== 'string') return ''
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
 
 export default Search
