@@ -31,25 +31,6 @@ export default class PokemonDetails extends React.Component {
         })
 
         return (
-            // <div className="container">
-            //     <div className="pokemon-details">
-            //         <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} alt="" />
-            //         <div className="details">
-            //             <div className="header">
-            //                 <h1 className="mr-2">{pokemon.name}</h1>
-            //                 <div className="badges">
-            //                     {types}
-            //                 </div>
-            //             </div>
-            //             <div className="content">
-            //                 <p>Taille : {pokemon.height} m</p>
-            //                 <p>Poids : {pokemon.weight} kg</p>
-            //                 <p>{pokemon.description}</p>
-            //             </div>
-            //         </div>
-            //     </div>
-            // </div>
-
             <div id="pokedex">
                 <div class="sensor">
                     <button></button>
@@ -94,7 +75,7 @@ export default class PokemonDetails extends React.Component {
                     <button class="level-button"></button>
                     <button class="level-button"></button>
 
-                    <button class="pokedex-mode black-button">Pokedex</button>
+                    <button to='/' class="pokedex-mode black-button">Pokedex</button>
                     <button class="game-mode black-button">Game</button>
 
                 </div>
