@@ -13,6 +13,7 @@ export default class NavbarPokedex extends React.Component {
                     <Nav class="mr-auto">
                         <Link class="mr-2 ml-2" to="/">Home</Link>
                         <Link class="mr-2 ml-2" to="/register">Register</Link>
+                        <Link class="mr-2 ml-2" to="/showTeam">Voir team</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
