@@ -5,6 +5,7 @@ import users from './user.reducer'
 import authentication from './auth.reducer'
 import alert from './alert.reducer'
 import registration from './register.reducer'
+import team from './team.reducer'
 
 export default combineReducers({
     pokemons,
@@ -12,5 +13,6 @@ export default combineReducers({
     authentication,
     registration,
     alert, 
-    pokemon
+    pokemon,
+    team
 })

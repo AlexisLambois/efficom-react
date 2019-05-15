@@ -1,7 +1,6 @@
 import {connect} from 'react-redux'
-import {getPokemons} from '../actions/pokemons'
-import ListPokemon from './../ui/list-pokemon/list-pokemon';
-import ShowTeam from './../component/team/showTeam';
+import {getPokemons} from '../actions/pokemons.action'
+import ShowTeam from '../ui/team/showTeam';
 
 function mapStateToProps(state) {
   const { collection } = state.pokemons
