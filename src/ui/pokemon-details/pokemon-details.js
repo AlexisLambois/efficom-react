@@ -30,8 +30,6 @@ export default class PokemonDetails extends React.Component {
             return (<h5><Badge variant="secondary" className="m-2">{type}</Badge></h5>);
         })
 
-        console.log();
-
         return (
             <div className="container">
                 <div className="pokemon-details">

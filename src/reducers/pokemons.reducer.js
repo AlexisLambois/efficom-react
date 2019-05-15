@@ -18,7 +18,6 @@ export default function(state = initialState, action) {
       }
 
     case GET_POKEMONS_SUCCESS:
-    console.log(state);
       return {
         ...state,
         collection: {
