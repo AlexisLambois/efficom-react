@@ -1,0 +1,27 @@
+.logo {
+    width: 5%;
+    margin-right: 20px;
+}
+
+.title::first-letter {
+    color: firebrick;
+}
+
+.title {
+    font-family: 'PokeFont'
+}
+
+.link {
+    color: firebrick; 
+    font-family: 'PokeGB';
+    font-size: 12px;
+    padding-right: 20px;
+}
+
+.link:hover {
+    color: black;
+}
+
+.links {
+    justify-content: flex-end;
+}

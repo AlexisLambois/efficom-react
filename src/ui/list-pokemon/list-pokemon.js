@@ -21,6 +21,7 @@ class ListPokemon extends Component {
       const searchString = hardtack.get('searchString')
       const { collection } = this.props
 
+
       if (!searchString) {
         return this.setState({
           pokemonsIds: Object.keys(collection)
@@ -29,7 +30,6 @@ class ListPokemon extends Component {
 
       const pokemonsIds = Object.keys(collection).filter(pokemonId => {
         const pokemon = collection[pokemonId]
-
         return pokemon.name.includes(searchString)
       })
 

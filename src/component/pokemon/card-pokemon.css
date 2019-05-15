@@ -1,0 +1,9 @@
+.card {
+    border-radius: 10px;
+}
+
+.card-footer {
+    background-color: #2a75bb;
+    font-family: 'PokeGB';
+    font-size: 11px;
+}
