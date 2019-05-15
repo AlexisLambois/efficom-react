@@ -15,7 +15,6 @@ class RegisterPage extends React.Component {
             },
             submitted: false
         };
-        this.password2 = '';
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -37,7 +36,7 @@ class RegisterPage extends React.Component {
         this.setState({submitted: true});
         const {user} = this.state;
         const {dispatch} = this.props;
-        if (user.email && user.password && (user.password === this.password2)) {
+        if (user.email && user.password) {
             dispatch(userActions.register(user));
         }
     }
@@ -64,14 +63,6 @@ class RegisterPage extends React.Component {
                                    onChange={this.handleChange}/>
                             {submitted && !user.password &&
                             <div className="help-block">Password is required</div>
-                            }
-                        </div>
-                        <div className={'form-group' + (submitted && this.password2 ? ' has-error' : '')}>
-                            <label htmlFor="password">Confirm Password</label>
-                            <input type="password" className="form-control" name="password2" value={this.password2}
-                                   onChange={this.handleChange}/>
-                            {submitted && this.password2 &&
-                            <div className="help-block">Same Password is required</div>
                             }
                         </div>
                         <div className="form-group">
