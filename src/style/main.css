@@ -1,8 +1,36 @@
+@font-face {
+  font-family: 'PokeFont';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/PocketMonk.otf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'PokeGB';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/PokemonGB.ttf');
+  /* IE9 Compat Modes */
+}
+
 body {
   background-color: #ccc;
+  background-image: url(../assets/img/background-pokemon.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.search {
+  font-family: 'PokeGB';
+  font-size: 10px;
+  padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .page {
@@ -53,8 +81,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.pokemon,
-.pokemon__sprite {
+.pokemon, .pokemon__sprite {
   width: 140px;
   height: 140px;
 }
@@ -74,8 +101,7 @@ body {
 }
 
 @media (min-width: 992px) {
-  .pokemon,
-  .pokemon__sprite {
+  .pokemon, .pokemon__sprite {
     width: 160px;
     height: 160px;
   }

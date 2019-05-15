@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react'
 import {Link} from "react-router-dom";
+import './card-pokemon.css';
 
 class Pokemon extends PureComponent {
   render() {
     const { pokemon } = this.props
 
     return (
-      <div className="pokemon">
+      <div className="pokemon card">
 
         <Link className="mr-2 ml-2" to={`/pokemon/${pokemon.id}`}>
           <button
@@ -18,7 +19,7 @@ class Pokemon extends PureComponent {
                 }.png`})`
             }}
           />
-          <p className="pokemon__name">{pokemon.name}</p>
+          <p className="card-footer pokemon__name">{pokemon.name}</p>
         </Link>
 
       </div>
