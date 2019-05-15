@@ -17,7 +17,7 @@ export default class App extends Component {
                 <Route path="/pokemon/:id" exact component={Pokemon} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
-          <Route path="/showTeam" exact component={ShowTeam} />
+                <Route path="/showTeam" exact component={ShowTeam} />
             </Router>
         )
     }

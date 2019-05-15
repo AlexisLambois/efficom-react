@@ -71,7 +71,7 @@ body {
 .pokemons_team {
   margin-top: 60px;
   padding: 0;
- 
+  list-style: none;
   display: block;
   height: 80vh;
   overflow-y: scroll;
@@ -180,7 +180,7 @@ body {
 
 .teamTable
 {
-  width : 60vw !important;
+  width : 40vw !important;
   position: absolute;
   right: 0;
   top: 30px;

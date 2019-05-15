@@ -16,7 +16,7 @@ export default class NavbarPokedex extends React.Component {
                 <Navbar.Collapse id="basic-navbar-nav" className="links">
                     <Nav className="">
                         <Link className="mr-2 ml-2 link" to="/">Accueil</Link>
-                        <Link class="mr-2 ml-2" to="/showTeam">Voir team</Link>
+                        <Link className="mr-2 ml-2 link" to="/showTeam">Voir team</Link>
                         <Link className="mr-2 ml-2 link" to="/register">S'inscrire</Link>
                         <Link className="mr-2 ml-2 link" to="/login">Se connecter</Link>
                     </Nav>

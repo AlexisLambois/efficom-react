@@ -3,7 +3,8 @@ import hardtack from 'hardtack'
 import Pokemon from './../pokemon/card-pokemon';
 import Table from 'react-bootstrap/Table'
 import Search from './../search/search';
-
+import '../../component/team/showTeam.css';
+import { getPokemonById } from "../../actions/pokemons.action";
 
 export default class ShowTeam extends React.Component {
     state = {
@@ -12,8 +13,7 @@ export default class ShowTeam extends React.Component {
         error: null
     }
 
-    appendPokemon(test)
-    {
+    appendPokemon(test) {
         console.log(test);
     }
 
@@ -50,29 +50,29 @@ export default class ShowTeam extends React.Component {
     handleSearch = event => {
         const value = event.currentTarget.value.toLowerCase().trim()
         const { collection } = this.props
-    
+
         hardtack.set('searchString', value, {
-          maxAge: '31536000'
+            maxAge: '31536000'
         })
-    
+
         if (value === '') {
-          return this.setState({
-            pokemonsIds: Object.keys(collection),
-            searchString: value
-          })
+            return this.setState({
+                pokemonsIds: Object.keys(collection),
+                searchString: value
+            })
         }
-    
+
         const pokemonsIds = Object.keys(collection).filter(pokemonId => {
-          const pokemon = collection[pokemonId]
-    
-          return pokemon.name.includes(value)
+            const pokemon = collection[pokemonId]
+
+            return pokemon.name.includes(value)
         })
-    
+
         this.setState({
-          pokemonsIds,
-          searchString: value
+            pokemonsIds,
+            searchString: value
         })
-      }
+    }
 
     render() {
         const { searchString, pokemonsIds, error } = this.state
@@ -82,8 +82,13 @@ export default class ShowTeam extends React.Component {
             const pokemon = collection[pokemonId]
 
             return (
-                <li className="pokemons__item_team" key={pokemon.id} onClick={() => this.appendPokemon("test")}>
-                    <Pokemon pokemon={pokemon} />
+                <li className="pokemons__item_team" key={pokemon.id} onClick={() => console.log(pokemon.id)}>
+                    <div className="d-flex flex-row name_poke">
+                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                            pokemon.id
+                            }.png`} />
+                        <p> {pokemon.name}</p>
+                    </div>
                 </li>
             )
         })
@@ -100,24 +105,24 @@ export default class ShowTeam extends React.Component {
                         <ul className="pokemons_team">{pokemons}</ul>
                     )}
                 <Table striped bordered hover className="teamTable">
-                <thead>
-                    <tr>
-                    <th>#</th>
-                    <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    </tr>
-                </tbody>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                        </tr>
+                    </tbody>
                 </Table>
-                
+
             </div>
-            
-            
-            
+
+
+
         )
     }
 }
