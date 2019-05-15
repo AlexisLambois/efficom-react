@@ -1,13 +1,20 @@
 import React from "react";
 import hardtack from 'hardtack'
 import Pokemon from './../pokemon/card-pokemon';
+import Table from 'react-bootstrap/Table'
 import Search from './../search/search';
+
 
 export default class ShowTeam extends React.Component {
     state = {
         searchString: '',
         pokemonsIds: [],
         error: null
+    }
+
+    appendPokemon(test)
+    {
+        console.log(test);
     }
 
     componentDidMount() {
@@ -40,6 +47,33 @@ export default class ShowTeam extends React.Component {
         })
     }
 
+    handleSearch = event => {
+        const value = event.currentTarget.value.toLowerCase().trim()
+        const { collection } = this.props
+    
+        hardtack.set('searchString', value, {
+          maxAge: '31536000'
+        })
+    
+        if (value === '') {
+          return this.setState({
+            pokemonsIds: Object.keys(collection),
+            searchString: value
+          })
+        }
+    
+        const pokemonsIds = Object.keys(collection).filter(pokemonId => {
+          const pokemon = collection[pokemonId]
+    
+          return pokemon.name.includes(value)
+        })
+    
+        this.setState({
+          pokemonsIds,
+          searchString: value
+        })
+      }
+
     render() {
         const { searchString, pokemonsIds, error } = this.state
         const { collection, isFetched } = this.props
@@ -48,7 +82,7 @@ export default class ShowTeam extends React.Component {
             const pokemon = collection[pokemonId]
 
             return (
-                <li className="pokemons__item_team" key={pokemon.id}>
+                <li className="pokemons__item_team" key={pokemon.id} onClick={() => this.appendPokemon("test")}>
                     <Pokemon pokemon={pokemon} />
                 </li>
             )
@@ -65,7 +99,25 @@ export default class ShowTeam extends React.Component {
                 ) : (
                         <ul className="pokemons_team">{pokemons}</ul>
                     )}
+                <Table striped bordered hover className="teamTable">
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    </tr>
+                </tbody>
+                </Table>
+                
             </div>
+            
+            
+            
         )
     }
 }

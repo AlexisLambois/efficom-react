@@ -144,3 +144,11 @@ body {
     height: 40px;
   }
 }
+
+.teamTable
+{
+  width : 60vw !important;
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
