@@ -6,7 +6,7 @@ const Search = ({ onChange, value }) => (
     onChange={onChange}
     value={value}
     className="search"
-    placeholder="Enter pokemon name..."
+    placeholder="Nom de pokemon..."
     autoFocus
   />
 )
