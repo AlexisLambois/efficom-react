@@ -41,7 +41,7 @@ class ListPokemon extends Component {
   }
 
   handleSearch = event => {
-    const value = event.currentTarget.value.toLowerCase().trim()
+    const value = event.currentTarget.value;
     const {collection} = this.props
 
     hardtack.set('searchString', value, {

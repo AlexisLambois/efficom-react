@@ -67,7 +67,7 @@ export default class ShowTeam extends React.Component {
     }
 
     handleSearch = event => {
-        const value = event.currentTarget.value.toLowerCase().trim()
+        const value = event.currentTarget.value;
         const { collection, team } = this.props
 
         hardtack.set('searchString', value, {
