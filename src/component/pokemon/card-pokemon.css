@@ -3,7 +3,7 @@
 }
 
 .card-footer {
-    background-color: #2a75bb;
+    background-color: #2a75bb !important;
     font-family: 'PokeGB';
-    font-size: 11px;
+    font-size: 9px !important;
 }
