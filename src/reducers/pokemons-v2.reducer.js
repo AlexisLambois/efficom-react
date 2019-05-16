@@ -8,25 +8,23 @@ import { pokemonsV2Constants
   
   export default function pokemonsV2(state = initialState, action) {
     switch (action.type) {
-      case pokemonsV2Constants.GETALL_POKEMONS_REQUEST:
+      case pokemonsV2Constants.GETALL_REQUEST:
         return {
           ...state,
           isFetched: true
         }
   
-      case pokemonsV2Constants.GETALL_POKEMONS_SUCCESS:
+        case pokemonsV2Constants.GETALL_SUCCESS:
         return {
-          ...state,
-          collection: {
-            ...state.collection,
-            ...action.payload.results.map((accumulator, item) => {
-              const id = item.id;
-                console.log('item',item)
-                console.log('accumulator',accumulator)
+            ...state,
+            collection: {
+                ...state.collection,
+                ...action.payload.results.reduce((accumulator, item) => {
+              const name = item.name;
               return {
                 ...accumulator,
-                [id]: {
-                  id,
+                [name]: {
+                  name,
                   ...item
                 }
               }
@@ -35,7 +33,7 @@ import { pokemonsV2Constants
           isFetched: false
         }
   
-      case pokemonsV2Constants.GETALL_POKEMONS_FAILURE:
+      case pokemonsV2Constants.GETALL_FAILURE:
         return {
           ...state,
           isFetched: false

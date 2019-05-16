@@ -14,7 +14,7 @@ class NavbarPokedex extends React.Component {
         return (
             <Navbar bg="light" expand="lg">
                 <Image className="logo" src={logo} fluid />
-                <Navbar.Brand><h1 className="title">Pokedex</h1></Navbar.Brand>
+                <Navbar.Brand><h1 className="title">Pokedex V1</h1></Navbar.Brand>
                 <Link className="mr-2 ml-2 link" to="/pokemonsV2">Pokedex - Version 2</Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="links">
