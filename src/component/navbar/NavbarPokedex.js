@@ -21,8 +21,8 @@ class NavbarPokedex extends React.Component {
                         <Link className="mr-2 ml-2 link" to="/">Accueil</Link>
                         <Link className="mr-2 ml-2 link" to="/showTeam">Voir team</Link>
                         {loggedIn
-                            ? (<button onClick={logout}>deconnexion</button>)
-                            : (<Link className="mr-2 ml-2 link" to="/register">S'inscrire</Link>)
+                            ? (<button onClick={logout}>Deconnexion</button>)
+                            : (<Link className="mr-2 ml-2 link" to="/login">Mon Compte</Link>)
                         }
                     </Nav>
                 </Navbar.Collapse>
