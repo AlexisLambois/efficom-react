@@ -27,7 +27,6 @@ export const getTeam = () => dispatch => {
 }
 
 export const putTeam = (team) => dispatch => {
-    console.log('team', team);
     return dispatch({
         [RSAA]: {
             endpoint: `http://51.75.122.159:3000/trainers/me/team`,

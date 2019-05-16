@@ -7,6 +7,7 @@ import {RegisterPage} from './ui/register/register.page';
 import {LoginPage} from './ui/login/login.page';
 import Pokemon from './containers/pokemon.container';
 import Pokemons from './containers/pokemons.container';
+import PokemonsV2 from './containers/pokemon-v2.container';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +21,7 @@ export default class App extends Component {
             <Router>
                 <Navbar/>
                 <Route path="/" exact component={Pokemons} />
+                <Route path="/pokemonV2" exact component={PokemonsV2} />
                 <Route path="/pokemon/:id" exact component={Pokemon} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />

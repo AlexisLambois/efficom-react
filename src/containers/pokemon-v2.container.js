@@ -1,20 +1,20 @@
-import {connect} from 'react-redux'
-// import {getPokemonById} from '../actions/pokemons.action'
-// import PokemonDetails from './../ui/pokemon-details/pokemon-details';
+import { connect } from 'react-redux'
+import {getPokemonsV2} from '../actions/pokemons-v2.action'
+import ListPokemonV2 from './../ui/list-pokemon-v2/list-pokemon-v2';
 
 function mapStateToProps(state) {
-  const { collection } = state.pokemon
+    const { collection } = state.pokemon
 
-  return {
-    collection
-  }
+    return {
+        collection
+    }
 }
 
 const mapDispatchToProps = {
-  getPokemonV2ById
+    getPokemonsV2
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(ListPokemonV2)
