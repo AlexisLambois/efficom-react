@@ -5,7 +5,7 @@ import { authHeader } from './../helpers/auth.helper';
 export const getPokemonsV2 = () => dispatch => {
     return dispatch({
         [RSAA]: {
-            endpoint: `https://pokeapi.co/api/v2`,
+            endpoint: `https://pokeapi.co/api/v2/pokemon/?limit=1000&offset=0"`,
             method: 'GET',
             types: [
                 pokemonsV2Constants.GETALL_REQUEST,

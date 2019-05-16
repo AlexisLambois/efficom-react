@@ -15,13 +15,14 @@ class NavbarPokedex extends React.Component {
             <Navbar bg="light" expand="lg">
                 <Image className="logo" src={logo} fluid />
                 <Navbar.Brand><h1 className="title">Pokedex</h1></Navbar.Brand>
+                <Link className="mr-2 ml-2 link" to="/pokemonsV2">Pokedex - Version 2</Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="links">
                     <Nav className="">
                         <Link className="mr-2 ml-2 link" to="/">Accueil</Link>
                         <Link className="mr-2 ml-2 link" to="/showTeam">Voir team</Link>
                         {loggedIn
-                            ? (<button onClick={logout}>Deconnexion</button>)
+                            ? (<Link className="mr-2 ml-2 link" onClick={logout}>Deconnexion</Link>)
                             : (<Link className="mr-2 ml-2 link" to="/login">Mon Compte</Link>)
                         }
                     </Nav>
@@ -36,8 +37,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    logout: function () { 
-        dispatch({ type: 'USERS_LOGOUT' }) 
+    logout: function () {
+        dispatch({ type: 'USERS_LOGOUT' })
     }
 });
 

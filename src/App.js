@@ -21,7 +21,7 @@ export default class App extends Component {
             <Router>
                 <Navbar/>
                 <Route path="/" exact component={Pokemons} />
-                <Route path="/pokemonV2" exact component={PokemonsV2} />
+                <Route path="/pokemonsV2" exact component={PokemonsV2} />
                 <Route path="/pokemon/:id" exact component={Pokemon} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />

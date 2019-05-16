@@ -58,7 +58,6 @@ class ListPokemonV2 extends Component {
 
         const pokemonsIds = Object.keys(collection).filter(pokemonId => {
             const pokemon = collection[pokemonId]
-
             return pokemon.name.includes(value)
         })
 
