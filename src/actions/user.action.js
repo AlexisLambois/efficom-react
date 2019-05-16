@@ -34,7 +34,7 @@ function login(email, password) {
 }
 
 function logout() {
-    userService.logout();
+    userService.logout().then(dispatch => {});
     return { type: userConstants.LOGOUT };
 }
 

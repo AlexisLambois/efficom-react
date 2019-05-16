@@ -2,12 +2,15 @@ import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 import './NavbarPokedex.css'
 import Image from 'react-bootstrap/Image'
 import logo from '../../assets/img/Logo-pokemon.png'
 
-export default class NavbarPokedex extends React.Component {
+class NavbarPokedex extends React.Component {
     render() {
+        const { loggedIn, logout } = this.props;
+
         return (
             <Navbar bg="light" expand="lg">
                 <Image className="logo" src={logo} fluid />
@@ -17,11 +20,26 @@ export default class NavbarPokedex extends React.Component {
                     <Nav className="">
                         <Link className="mr-2 ml-2 link" to="/">Accueil</Link>
                         <Link className="mr-2 ml-2 link" to="/showTeam">Voir team</Link>
-                        <Link className="mr-2 ml-2 link" to="/register">S'inscrire</Link>
-                        <Link className="mr-2 ml-2 link" to="/login">Se connecter</Link>
+                        {loggedIn
+                            ? (<button onClick={logout}>deconnexion</button>)
+                            : (<Link className="mr-2 ml-2 link" to="/register">S'inscrire</Link>)
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
         );
     }
 }
+
+const mapStateToProps = state => ({
+    loggedIn: state.authentication.loggedIn
+});
+
+const mapDispatchToProps = dispatch => ({
+    logout: function () { 
+        dispatch({ type: 'USERS_LOGOUT' }) 
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarPokedex);
+
