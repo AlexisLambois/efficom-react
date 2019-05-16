@@ -3,9 +3,8 @@ import hardtack from 'hardtack';
 import Table from 'react-bootstrap/Table';
 import Search from '../../component/search/search';
 import './showTeam.css';
-import {teamActions} from '../../actions/team.action';
 import {connect} from 'react-redux';
-import { teamService } from "../../services/team.service";
+import {teamService} from "../../services/team.service";
 
 class ShowTeam extends React.Component {
 
@@ -55,7 +54,7 @@ class ShowTeam extends React.Component {
 
     handleSearch = event => {
         const value = event.currentTarget.value.toLowerCase().trim()
-        const { collection } = this.props
+        const {collection} = this.props
 
         hardtack.set('searchString', value, {
             maxAge: '31536000'
@@ -81,8 +80,8 @@ class ShowTeam extends React.Component {
     }
 
     render() {
-        const { searchString, pokemonsIds, error } = this.state
-        const { collection, isFetched } = this.props
+        const {searchString, pokemonsIds, error} = this.state
+        const {collection, isFetched} = this.props
 
         const pokemons = pokemonsIds.map(pokemonId => {
             const pokemon = collection[pokemonId]
@@ -90,7 +89,8 @@ class ShowTeam extends React.Component {
             return (
                 <li className="pokemons__item_team" key={pokemon.id} onClick={() => console.log(pokemon.id)}>
                     <div className="d-flex flex-row name_poke">
-                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />
+                        <img
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}/>
                         <p> {pokemon.name}</p>
                     </div>
                 </li>
@@ -102,27 +102,27 @@ class ShowTeam extends React.Component {
                 <div>
                     {error && <div className="page__error">{error}</div>}
                     <div className="page__search">
-                        <Search onChange={this.handleSearch} value={searchString} />
+                        <Search onChange={this.handleSearch} value={searchString}/>
                     </div>
                     {isFetched ? (
                         <p>Loading...</p>
                     ) : (
-                            <ul className="pokemons_team">{pokemons}</ul>
-                        )}
+                        <ul className="pokemons_team">{pokemons}</ul>
+                    )}
                 </div>
                 <div className="container pt-5">
                     <Table striped bordered hover variant="light">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th></th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                            </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                        </tr>
                         </tbody>
                     </Table>
                 </div>

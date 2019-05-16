@@ -18,7 +18,7 @@ function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);
         console.log('data', data);
-        if(data.statusCode == 403){
+        if(data.statusCode === 403){
             return Promise.reject('error');
         }
         return data;
