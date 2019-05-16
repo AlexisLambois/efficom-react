@@ -80,19 +80,25 @@
     pointer-events: none;
   }
   
-  .pokemons__item_team
+  .pokemons
   {
-    display: block;
-    margin : 10px;
     background-color: white;
   }
   
-  .pokemons__item_team .pokemon__name
+  .pokemons:hover
   {
-    text-align: left;
-    margin-left: 60px;
-    line-height: 40px;
+    background-color: whitesmoke;
   }
+
+  .pokemons .content {
+    align-items: center;
+  }
+
+ p {
+    margin: 0;
+  }
+  
+
 
     
   .teamTable

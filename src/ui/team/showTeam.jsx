@@ -98,18 +98,22 @@ export default class ShowTeam extends React.Component {
     deletePokemon(id) {
         const team = [...this.state.team];
         const filteredItems = team.filter(item => item !== id);
-        this.props.putTeam(filteredItems).then(() => {
-
-            this.setState({
-                team: filteredItems
-            })
-        });
+        this.putTeam(filteredItems);
     }
 
     addPokemon(id) {
         const team = [...this.state.team];
         team.push(id);
-        this.props.putTeam(team).then(() => {
+        this.putTeam(team);
+    }
+
+    putTeam(team) {
+        this.props.putTeam(team).then(action => {
+            if (action.error) {
+                return this.setState({
+                    error: action.payload.response.message
+                })
+            }
             this.setState({
                 team
             })
@@ -124,10 +128,9 @@ export default class ShowTeam extends React.Component {
             const pokemon = collection[pokemonId]
 
             return (
-                <li className="pokemons__item_team" key={pokemon.id} onClick={() => this.addPokemon(pokemon.id)}>
-                    <div className="d-flex flex-row name_poke">
-                        <img
-                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />
+                <li className="pokemons" key={pokemon.id} onClick={() => this.addPokemon(pokemon.id)}>
+                    <div className="d-flex flex-row content">
+                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />
                         <p> {pokemon.name}</p>
                     </div>
                 </li>
