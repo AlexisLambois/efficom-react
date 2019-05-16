@@ -10,6 +10,7 @@ import Pokemons from './containers/pokemons.container';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import {PrivateRoute} from './helpers/private-route.helper'
 
 library.add(faTimes)
 
@@ -22,7 +23,7 @@ export default class App extends Component {
                 <Route path="/pokemon/:id" exact component={Pokemon} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
-                <Route path="/showTeam" component={ShowTeam} />
+                <PrivateRoute path="/showTeam" component={ShowTeam} />
             </Router>
         )
     }
