@@ -3,10 +3,10 @@ import hardtack from 'hardtack';
 import Table from 'react-bootstrap/Table';
 import Search from '../../component/search/search';
 import './showTeam.css';
-import {connect} from 'react-redux';
-import {teamService} from "../../services/team.service";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from "react-bootstrap";
 
-class ShowTeam extends React.Component {
+export default class ShowTeam extends React.Component {
 
     constructor(props) {
         super(props);
@@ -20,41 +20,55 @@ class ShowTeam extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.getPokemons().then(action => {
-        //     if (action.error) {
-        //         return this.setState({
-        //             error: action.payload.message
-        //         })
-        //     }
 
-        //     const searchString = hardtack.get('searchString')
-        //     const { collection } = this.props
+        // List pokemon
+        this.props.getPokemons().then(action => {
+            if (action.error) {
+                return this.setState({
+                    error: action.payload.message
+                })
+            }
 
-        //     if (!searchString) {
-        //         return this.setState({
-        //             pokemonsIds: Object.keys(collection)
-        //         })
-        //     }
+            const searchString = hardtack.get('searchString')
+            const { collection } = this.props
 
-        //     const pokemonsIds = Object.keys(collection).filter(pokemonId => {
-        //         const pokemon = collection[pokemonId]
+            if (!searchString) {
+                return this.setState({
+                    pokemonsIds: Object.keys(collection)
+                })
+            }
 
-        //         return pokemon.name.includes(searchString)
-        //     })
+            const pokemonsIds = Object.keys(collection).filter(pokemonId => {
+                const pokemon = collection[pokemonId]
 
-        //     this.setState({
-        //         pokemonsIds,
-        //         searchString
-        //     })
-        // });
-        console.log(this.props);
-        this.props.getTeam();
+                return pokemon.name.includes(searchString)
+            })
 
+            this.setState({
+                pokemonsIds,
+                searchString
+            })
+        });
+
+
+        // Team
+        this.props.getTeam().then(response => {
+            if(response.error) {
+                return this.setState({
+                    error: response.payload.message
+                })
+            }
+
+            const {team} = this.props;
+            this.setState({
+                team
+            })
+        });
     }
 
     handleSearch = event => {
         const value = event.currentTarget.value.toLowerCase().trim()
-        const {collection} = this.props
+        const { collection, team } = this.props
 
         hardtack.set('searchString', value, {
             maxAge: '31536000'
@@ -75,25 +89,60 @@ class ShowTeam extends React.Component {
 
         this.setState({
             pokemonsIds,
-            searchString: value
+            searchString: value,
+            team
+        })
+    }
+
+
+    deletePokemon(id) {
+        const team = [...this.state.team];
+        const filteredItems = team.filter(item => item !== id);
+        this.props.putTeam(filteredItems).then(() => {
+
+            this.setState({
+                team: filteredItems
+            })
+        });
+    }
+
+    addPokemon(id) {
+        const team = [...this.state.team];
+        team.push(id);
+        this.props.putTeam(team).then(() => {
+            this.setState({
+                team
+            })
         })
     }
 
     render() {
-        const {searchString, pokemonsIds, error} = this.state
-        const {collection, isFetched} = this.props
+        const { searchString, pokemonsIds, error, team } = this.state;
+        const { collection, isFetched } = this.props;
 
         const pokemons = pokemonsIds.map(pokemonId => {
             const pokemon = collection[pokemonId]
 
             return (
-                <li className="pokemons__item_team" key={pokemon.id} onClick={() => console.log(pokemon.id)}>
+                <li className="pokemons__item_team" key={pokemon.id} onClick={() => this.addPokemon(pokemon.id)}>
                     <div className="d-flex flex-row name_poke">
                         <img
-                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}/>
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />
                         <p> {pokemon.name}</p>
                     </div>
                 </li>
+            )
+        })
+
+        const myTeam = team.map(pokemonId => {
+            const pokemon = collection[pokemonId];
+
+            return (
+                <tr>
+                    <td>{pokemon.id}</td>
+                    <td>{pokemon.name}</td>
+                    <td><Button variant="danger" size="sm" onClick={() => this.deletePokemon(pokemon.id)}><FontAwesomeIcon icon="times" /></Button></td>
+                </tr>
             )
         })
 
@@ -102,27 +151,25 @@ class ShowTeam extends React.Component {
                 <div>
                     {error && <div className="page__error">{error}</div>}
                     <div className="page__search">
-                        <Search onChange={this.handleSearch} value={searchString}/>
+                        <Search onChange={this.handleSearch} value={searchString} />
                     </div>
                     {isFetched ? (
                         <p>Loading...</p>
                     ) : (
-                        <ul className="pokemons_team">{pokemons}</ul>
-                    )}
+                            <ul className="pokemons_team">{pokemons}</ul>
+                        )}
                 </div>
                 <div className="container pt-5">
-                    <Table striped bordered hover variant="light">
+                    <Table striped bordered variant="light">
                         <thead>
-                        <tr>
-                            <th>#</th>
-                            <th></th>
-                        </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Nom</th>
+                                <th>Action</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                        </tr>
+                            {myTeam}
                         </tbody>
                     </Table>
                 </div>
@@ -130,27 +177,3 @@ class ShowTeam extends React.Component {
         )
     }
 }
-
-function mapStateToProps(state) {
-    const {team} = state.team;
-    return {
-        team
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        getTeam: () => {
-            teamService.getTeam().then((data) => {
-                dispatch({
-                    type: 'GET_TEAM_SUCCESS',
-                    team: data
-                })
-            }).catch(() => {
-                console.log('error');
-            })
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ShowTeam);

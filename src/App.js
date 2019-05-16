@@ -7,7 +7,11 @@ import {RegisterPage} from './ui/register/register.page';
 import {LoginPage} from './ui/login/login.page';
 import Pokemon from './containers/pokemon.container';
 import Pokemons from './containers/pokemons.container';
-import ShowTeams from './ui/team/showTeam';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faTimes)
 
 export default class App extends Component {
     render() {
@@ -19,7 +23,6 @@ export default class App extends Component {
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/showTeam" component={ShowTeam} />
-                <Route path="/test" component={ShowTeams} />
             </Router>
         )
     }

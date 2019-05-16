@@ -40,6 +40,32 @@ class ListPokemon extends Component {
     })
   }
 
+  handleSearch = event => {
+    const value = event.currentTarget.value.toLowerCase().trim()
+    const {collection} = this.props
+
+    hardtack.set('searchString', value, {
+        maxAge: '31536000'
+    })
+
+    if (value === '') {
+        return this.setState({
+            pokemonsIds: Object.keys(collection),
+            searchString: value
+        })
+    }
+
+    const pokemonsIds = Object.keys(collection).filter(pokemonId => {
+        const pokemon = collection[pokemonId]
+
+        return pokemon.name.includes(value)
+    })
+
+    this.setState({
+        pokemonsIds,
+        searchString: value
+    })
+}
   
 
   render() {
