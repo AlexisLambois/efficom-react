@@ -151,7 +151,7 @@ export default class ShowTeam extends React.Component {
 
         return (
             <div className="page page_team d-flex flex-row">
-                <div>
+                <div className="sidebar">
                     {error && <div className="page__error">{error}</div>}
                     <div className="page__search">
                         <Search onChange={this.handleSearch} value={searchString} />

@@ -91,7 +91,7 @@ class ListPokemon extends Component {
         {isFetched ? (
           <p>Loading...</p>
         ) : (
-          <ul className="pokemons">{pokemons}</ul>
+          <ul className="list-pokemons">{pokemons}</ul>
         )}
       </div>
     )

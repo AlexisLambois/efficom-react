@@ -17,6 +17,7 @@
 body {
   background-color: #ccc;
   background-image: url(../assets/img/background-pokemon.png);
+  background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: sans-serif;
@@ -62,7 +63,7 @@ body {
   background-color: #f44336;
 }
 
-.pokemons {
+.list-pokemons {
   margin: 0;
   padding: 0;
   list-style: none;
