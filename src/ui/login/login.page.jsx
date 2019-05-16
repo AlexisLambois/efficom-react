@@ -49,6 +49,7 @@ class LoginPage extends React.Component {
         const { email, password } = this.state;
         const { dispatch } = this.props;
         if (email && password) {
+            this.props.history.push("/showTeam");
             dispatch(userActions.login(email, password));
         }
     }
