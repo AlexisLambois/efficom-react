@@ -3,7 +3,7 @@ import {getPokemonsV2} from '../actions/pokemons-v2.action'
 import ListPokemonV2 from './../ui/list-pokemon-v2/list-pokemon-v2';
 
 function mapStateToProps(state) {
-    const { collection } = state.pokemon
+    const { collection } = state.pokemonsV2
 
     return {
         collection
