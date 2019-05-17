@@ -74,7 +74,6 @@ class ListPokemonV2 extends Component {
 
         const pokemons = pokemonsIds.map(pokemonId => {
             const pokemon = collection[pokemonId]
-            console.log('pokemon',pokemon);
             return (
                 <li className="pokemons__item" key={pokemon.name}>
                     <Pokemon pokemon={pokemon} />
